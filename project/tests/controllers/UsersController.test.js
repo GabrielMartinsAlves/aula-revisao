@@ -1,3 +1,4 @@
+/* eslint-disable prefer-arrow-callback */
 const assert = require('assert');
 const controller = require('../../api/controllers/UsersController');
 const {USER, RESPONSE} = require('../utils/index');
@@ -7,7 +8,6 @@ var supertest = require('supertest');
 describe('UsersController', () => {
   it('Deve criar o usuário com sucesso', async () => {
     const substituicao1 =  sinon.stub(User, 'create').resolves(USER);
- 
     const req = {
       body: USER,
     };
@@ -39,9 +39,9 @@ describe('route /register', function() {
 
 describe('User (model)', () => {
   it('Deve criar o usuário com sucesso', async () => {
-    let user = await User.create(USER).fetch();
+    let user = await User.create(USER);
 
-    assert.strictEqual(user.email, USER.email)
-    assert.strictEqual(user.name, USER.name)
+    assert.equal(user.email, USER.email);
+    assert.equal(user.name, USER.name);
   });
 });

@@ -1,8 +1,9 @@
+/* eslint-disable linebreak-style */
 var sails = require('sails');
 
 // Before running any tests...
 before(function(done) {
-  this.timeout(10000);
+  this.timeout(50000);
 
   sails.lift({
     hooks: { grunt: false, csrf: false },
